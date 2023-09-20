@@ -1,7 +1,6 @@
 from flask import Flask
 from src.extensions import db
-from src.endpoints import home
-
+from src.endpoints.appointments import appointment
 
 def create_app():
     app = Flask(__name__)
@@ -11,5 +10,7 @@ def create_app():
     # restart wipes the db clean, but does have the advantage of not having to worry about schema migrations.
     with app.app_context():
         db.create_all()
-    app.register_blueprint(home)
+
+    app.register_blueprint(appointment)
+    
     return app

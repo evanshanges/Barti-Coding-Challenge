@@ -111,8 +111,13 @@ def get_first_available_appointment():
     duration = int(request.args.get('duration'))
 
     # If desired_start does not have a value we can just sure current time
-    # if desired_start is None:
-    #     desired_start = datetime.now()
+    if desired_start is None:
+        desired_start = datetime.now()
+
+    # Make sure that the desired_start is in the future and not in the past
+    # otherwise the first availalbe appointment might be a time in the past
+    if desired_start < datetime.now():
+        desired_start = datetime.now()
 
     # If doctor id is provided then it will look for the first available time for that specific doctor
     if doctor_id:

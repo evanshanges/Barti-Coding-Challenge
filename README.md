@@ -11,12 +11,12 @@ Under api-skeleton/src, run ```flask run --host=0.0.0.0 -p 8000```
 By default, Flask runs with port 5000, but some MacOS services now listen on that port.
 
 ## Running unit tests
-All the tests can be run via ```pytest``` under api-skeleton directory.
+All the tests can be run via ```pytest``` under api-skeleton/tests directory.
 
 ## Code Structure
-This is meant to be barebones.
-
 * src/app.py contains the code for setting up the flask app.
-* src/endpoints.py contains all the code for enpoints.
-* src/models.py contains all the database model definitions.
-* src/extensions.py sets up the extensions (https://flask.palletsprojects.com/en/2.0.x/extensions/)
+* src/endpoints/ contains the file for enpoints.
+* src/models/ contains all the database model definitions files.
+* src/helpers/ contains the helper functions used in this challenge.
+
+* tests/test_modules/ contains all the files to test each api.

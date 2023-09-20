@@ -110,6 +110,10 @@ def get_first_available_appointment():
     desired_start = datetime.fromisoformat(request.args.get('desired_start'))
     duration = int(request.args.get('duration'))
 
+    # If desired_start does not have a value we can just sure current time
+    # if desired_start is None:
+    #     desired_start = datetime.now()
+
     # If doctor id is provided then it will look for the first available time for that specific doctor
     if doctor_id:
         doctor = Doctor.query.get(doctor_id)
